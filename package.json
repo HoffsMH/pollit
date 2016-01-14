@@ -1,0 +1,27 @@
+{
+  "name": "pollit",
+  "version": "1.0.0",
+  "description": "Just a simple app for online polling",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HoffsMH/pollit.git"
+  },
+  "keywords": [
+    "online",
+    "poll"
+  ],
+  "author": "Matt Hecker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HoffsMH/pollit/issues"
+  },
+  "homepage": "https://github.com/HoffsMH/pollit#readme"
+}
