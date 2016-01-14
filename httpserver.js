@@ -5,7 +5,7 @@ const http = require('http');
 module.exports = {
   start(app) {
     let server = http.createServer(app);
-    let port = process.env.PORT || 3000;
+    let port   = process.env.PORT || 3000;
 
     if (!module.parent.parent) {
       return server.listen(port, function () {
