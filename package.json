@@ -23,5 +23,11 @@
   "bugs": {
     "url": "https://github.com/HoffsMH/pollit/issues"
   },
-  "homepage": "https://github.com/HoffsMH/pollit#readme"
+  "homepage": "https://github.com/HoffsMH/pollit#readme",
+  "devDependencies": {
+    "mocha": "^2.3.4"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }
