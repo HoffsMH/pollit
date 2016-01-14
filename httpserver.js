@@ -11,6 +11,8 @@ module.exports = {
       return server.listen(port, function () {
         console.log('Listening on port ' + port + '.');
       });
+    } else {
+      return server
     }
   }
 };
