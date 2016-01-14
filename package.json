@@ -10,7 +10,6 @@
     "test": "mocha",
     "start": "node server.js",
     "dev": "nodemon server.js"
-
   },
   "repository": {
     "type": "git",
@@ -30,6 +29,7 @@
     "mocha": "^2.3.4"
   },
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "pryjs": "^0.1.3"
   }
 }
