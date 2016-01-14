@@ -8,7 +8,7 @@ module.exports = {
   },
   output: {
     path: __dirname,
-    filename: "./public/assets/javascript/bundle.min.js"
+    filename: "./public/assets/javascript/[name]-bundle-[chunkhash].min.js"
   },
   module: {
     loaders: [
