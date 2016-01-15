@@ -1,6 +1,20 @@
-body {
-  background: yellow;
-  div {
-    background: black;
+form.new-poll-form {
+  color: white;
+  h3 {
+    color: white;
   }
+}
+
+.site-title {
+  color: #80CBC4;
+}
+
+label {
+  color: white;
+}
+.input-field label {
+  color: white;
+}
+form input.poll-question {
+  font-size: 40px;
 }

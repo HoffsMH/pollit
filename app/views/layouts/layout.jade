@@ -1,9 +1,14 @@
 doctype html
 html
   head
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css', rel='stylesheet')
     link(href='/assets/stylesheets/main-bundle.css', rel='stylesheet')
     block title
       title Default title
-  body
-    block content
+  body(class="lime lighten-5")
+    div(class="container")
+      div(class="row")
+        div(class="col m8 offset-m2 center") 
+          h1(class="site-title") Poll it!
+      block content
     script(src='/assets/javascript/main-bundle.min.js')
