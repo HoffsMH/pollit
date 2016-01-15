@@ -15,6 +15,11 @@ label {
 .input-field label {
   color: white;
 }
+
+.poll-end-field {
+  display: none;
+}
+
 form input.poll-question {
   font-size: 40px;
 }

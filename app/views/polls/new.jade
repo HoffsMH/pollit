@@ -14,14 +14,17 @@ block content
       div(class="row")
         button(class="col m10 btn offset-m1") Add Another Choice
       div(class="row")
-        div(class="input-field col m10 offset-m1 center")
+        div(class="input-field col m6 center")
           input(type="checkbox", name="public-results", class="public-results", id="public-results")
           label(for="public-results", class="poll-label") Public Results
-      div(class="row")
+        div(class="input-field col m6 center")
+          input(type="checkbox", name="poll-end", class="poll-end", id="poll-end")
+          label(for="poll-end", class="poll-label") Time limit
+      div(class="row poll-end-field")
         div(class="input-field col m10 offset-m1")
           input(type="time", class="timepicker", name="end-time")
           label(for="end-time", class="poll-label")
-      div(class="row")
+      div(class="row poll-end-field")
         div(class="input-field col m10 offset-m1")
           input(type="date", class="datepicker", name="end-date")
           label(for="end-date", class="poll-label")
