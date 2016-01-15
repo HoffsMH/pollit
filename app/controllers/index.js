@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-router.use("/polls", require("./polls"))
+
+router.use("/", require("./polls"));
 
 module.exports = router;
