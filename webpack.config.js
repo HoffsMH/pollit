@@ -1,10 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: "./app/assets/javascript/index.js",
-    test: "./app/assets/javascript/index.js"
+    main: "./app/assets/index.js"
+    // test: "./app/assets/index.js"
   },
   output: {
     path: __dirname,
@@ -13,10 +14,13 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: /\.css$/, loader: "style!css" },
-      { test: /\.scss$/, loaders: ["style", "css", "sass"]}
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader") },
+      { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader") }
     ]
   },
+  plugins: [
+        new ExtractTextPlugin("./public/assets/stylesheets/[name]-bundle-[chunkhash].css")
+  ],
   resolve: {
     extensions: ['', '.js', '.json', '.scss', 'css']
   }
