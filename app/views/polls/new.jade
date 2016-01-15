@@ -5,7 +5,7 @@ block title
 
 block content
   div(class="row")
-    form(class="new-poll-form card-panel teal lighten-3 col m8 offset-m2", id="new-poll-form")
+    form(class="new-poll-form card-panel teal lighten-3 col m8 offset-m2", id="new-poll-form", action="/polls", method="post")
       h3 Question 
       input(type="text", name="poll-question", class="poll-question")
       h5 

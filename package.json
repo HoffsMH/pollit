@@ -36,6 +36,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "body-parser": "^1.14.2",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",
     "jQuery": "^1.7.4",

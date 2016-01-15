@@ -1,5 +1,5 @@
+require("./show-time-fields");
 const $ = require('jQuery');
-require("./show-time-fields")
 
 
 $(document).ready(function() {

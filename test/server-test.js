@@ -29,3 +29,6 @@ describe('Server', () => {
   });
 
 });
+
+
+require("./models/choice-set")
