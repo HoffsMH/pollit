@@ -1,6 +1,4 @@
 const $ = require('Jquery');
-module.exports = {
-  ok() {
-    console.log("hi");
-  }
-};
+$(document).ready(function() {
+  console.log("HI");
+});
