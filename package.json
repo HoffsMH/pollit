@@ -35,6 +35,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "ejs": "^2.3.4",
     "express": "^4.13.3",
     "pryjs": "^0.1.3",
     "sass-loader": "^3.1.2",

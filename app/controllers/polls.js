@@ -6,7 +6,7 @@ router.get("/" , function(req, res, next){
 });
 
 router.get("/:id" , function(req, res, next){
-  res.send("poop " + req.params.id);
+  res.render("../../views/polls/show.ejs", {taco: "taco value"})
 });
 
 
