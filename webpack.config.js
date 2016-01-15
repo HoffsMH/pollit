@@ -9,7 +9,7 @@ module.exports = {
   },
   output: {
     path: __dirname,
-    filename: "./public/assets/javascript/[name]-bundle-[chunkhash].min.js"
+    filename: "./public/assets/javascript/[name]-bundle.min.js"
   },
   module: {
     loaders: [
@@ -19,7 +19,7 @@ module.exports = {
     ]
   },
   plugins: [
-        new ExtractTextPlugin("./public/assets/stylesheets/[name]-bundle-[chunkhash].css")
+        new ExtractTextPlugin("./public/assets/stylesheets/[name]-bundle.css")
   ],
   resolve: {
     extensions: ['', '.js', '.json', '.scss', 'css']
