@@ -7,26 +7,26 @@ block content
   div(class="row")
     form(class="new-poll-form card-panel teal lighten-3 col m8 offset-m2", id="new-poll-form", action="/polls", method="post")
       h3 Question 
-      input(type="text", name="poll-question", class="poll-question")
+      input(type="text", name="poll[question]", class="poll-question")
       h5 
         | choice:
-      input(type="text", name="poll-choice", class="poll-choice")
+      input(type="text", name="questions[0]", class="poll-choice")
       div(class="row")
         button(class="col m10 btn offset-m1") Add Another Choice
       div(class="row")
         div(class="input-field col m6 center")
-          input(type="checkbox", name="public-results", class="public-results", id="public-results")
+          input(type="checkbox", name="poll[public-results]", class="public-results", id="public-results")
           label(for="public-results", class="poll-label") Public Results
         div(class="input-field col m6 center")
-          input(type="checkbox", name="poll-end", class="poll-end", id="poll-end")
+          input(type="checkbox", name="poll[ends]", class="poll-end", id="poll-end")
           label(for="poll-end", class="poll-label") Time limit
       div(class="row poll-end-field hidden")
         div(class="input-field col m10 offset-m1")
-          input(type="time", class="timepicker", name="end-time")
+          input(type="time", class="timepicker", name="poll[end-time]")
           label(for="end-time", class="poll-label")
       div(class="row poll-end-field hidden")
         div(class="input-field col m10 offset-m1")
-          input(type="date", class="datepicker", name="end-date")
+          input(type="date", class="datepicker", name="poll[end-date]")
           label(for="end-date", class="poll-label")
       div(class="row")
         input(type="submit", class="col m10 btn offset-m1") Start Poll
