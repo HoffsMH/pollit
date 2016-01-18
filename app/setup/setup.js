@@ -1,18 +1,12 @@
 "use strict";
 
 const express = require("express");
-const bodyParser = require("body-parser");
-
 
 module.exports = (app) => {
   // setting views folder
   app.set('views', __dirname + '/views');
-  //setting view engine to ejs
-  // app.set('view engine', 'ejs');
 
   // base controller that calls all sub controllers
-  app.use(bodyParser.urlencoded({extended: true}));
-  // require("../controllers/index.js").route(app);
   app.use(require("../controllers/index.js"));
 
   //if all else fails look in our public directory
