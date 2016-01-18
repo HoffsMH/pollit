@@ -8,5 +8,7 @@ function addPoll (poll) {
   var adminToken = crypto.randomBytes(20).toString('hex');
   this.locals.polls[userToken] = newPoll;
   this.locals.polls[adminToken] = newPoll;
+
+  return adminToken;
 }
 module.exports = addPoll;

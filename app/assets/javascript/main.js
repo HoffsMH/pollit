@@ -1,4 +1,6 @@
 require("./show-time-fields");
+require("./add-choice");
+
 const $ = require('jQuery');
 
 
