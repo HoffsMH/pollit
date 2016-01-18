@@ -31,4 +31,4 @@ describe('Server', () => {
 });
 
 
-require("./models/choice-set")
+require("./controllers/polls-test.js")
