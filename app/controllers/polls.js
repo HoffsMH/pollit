@@ -12,21 +12,26 @@ router.get("/" , function(req, res, next){
 });
 
 router.post("/polls", (req, res, next)  => {
-  var adminToken = req.app.addPoll(req.body);
+  var newPoll = req.app.addPoll(req.body);
 
-  res.redirect("/admin/" + adminToken);
+  res.redirect("/admin/" + newPoll.adminToken);
 });
 
 router.get("/admin/:id" , function(req, res, next){
     var id   = req.params.id;
     var poll = req.app.locals.polls[id];
-    // if (!poll) { res.redirect("/404/"); }
+    if (!poll) { res.redirect("/404/"); }
     // if the poll is expired show it anyway
     // if the poll is24 hours after expired delete it and 404
-    res.render("../../views/polls/admin.jade", {poll: poll});
+    var userUrl = req.protocol + '://' + req.get('host') + '/polls/' + poll.userToken;
+
+    res.render("../../views/polls/admin.jade", {poll: poll, userUrl: userUrl });
 });
 
 router.get("/polls/:id" , function(req, res, next){
+  var id   = req.params.id;
+  var poll = req.app.locals.polls[id];
+  if (!poll) { res.redirect("/404/"); }
 
   res.render("../../views/polls/show.jade", {taco: "taco value"});
 });

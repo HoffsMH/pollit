@@ -6,6 +6,8 @@ block title
 block content
   div(class="row")
     div(class="card-panel teal lighten-3 col m8 offset-m2", id="admin-panel")
+      h5 User Link:
+      a(href= userUrl)= userUrl
       h5 Question
       div= poll.poll.question
       ul
