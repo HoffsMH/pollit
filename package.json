@@ -50,6 +50,7 @@
     "jsdom": "^7.2.2",
     "location": "0.0.1",
     "materialize-css": "^0.97.5",
+    "moment": "^2.11.1",
     "navigator": "^1.0.1",
     "node-materialize": "^1.1.1",
     "node-sass": "^3.4.2",
