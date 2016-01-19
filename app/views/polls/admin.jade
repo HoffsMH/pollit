@@ -4,6 +4,7 @@ block title
   title admin
 
 block content
+  div(class="poll-admin-id hidden")= poll.adminToken
   div(class="row")
     div(class="card-panel teal lighten-3 col m8 offset-m2", id="admin-panel")
       h5 User Link:
@@ -11,8 +12,9 @@ block content
       h5 Question
       div= poll.poll.question
       ul
-         - for (var i = 0; i < poll.choices.length; ++i) {
-           li= poll.choices[i] + ": "
-         - }
+      - for (var i = 0; i < Object.keys(poll.choices).length ; ++i) {
+        div(class="row")
+          li(data-choice=Object.keys(poll.choices)[i], class="choice-id-" + Object.keys(poll.choices)[i] + " ")= Object.keys(poll.choices)[i] + ": "
+      - }    
       a(href='/') New Poll
       

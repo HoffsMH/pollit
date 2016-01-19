@@ -1,4 +1,6 @@
 const crypto = require("crypto");
+const _  = require("lodash");
+
 function addPoll (poll) {
   //clone the object
   // ran into some troubles when using by reference
@@ -9,10 +11,15 @@ function addPoll (poll) {
 
   newPoll.userToken = userToken;
   newPoll.adminToken = adminToken;
+  newPoll.choices = {};
+
+  _.each(poll.choices, (choice)=> {
+    newPoll.choices[choice] = [];
+  });
 
   this.locals.polls[userToken] = newPoll;
   this.locals.polls[adminToken] = newPoll;
 
-  return newPoll
+  return newPoll;
 }
 module.exports = addPoll;

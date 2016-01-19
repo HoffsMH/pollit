@@ -14,4 +14,5 @@ module.exports = (app) => {
 
   app.locals.polls = {};
   app.addPoll = require("../lib/add-poll.js");
+  app.clearVote = require("../lib/clear-votes.js");
 };

@@ -1,7 +1,19 @@
 extends ../layouts/layout
 
 block title
-  title Poll question
+  title Poll
 
 block content
-  h1 My poll
+  div(class="poll-user-id hidden")= poll.userToken
+  div(class="row")
+    div(class="card-panel teal lighten-3 col m8 offset-m2")
+      div(class="vote-thankyou center")
+      h5 Question
+      div= poll.poll.question
+      ul
+         - for (var i = 0; i < Object.keys(poll.choices).length ; ++i) {
+           div(class="row")
+             div(data-choice=Object.keys(poll.choices)[i], class="col m10 btn offset-m1 vote-button choice-id-" + Object.keys(poll.choices)[i] + " ")= Object.keys(poll.choices)[i] + ": "
+         - }
+      a(href='/') New Poll
+      

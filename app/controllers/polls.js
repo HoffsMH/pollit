@@ -4,6 +4,7 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require("body-parser");
 
+
 router.use(bodyParser.urlencoded({extended: true}));
 
 
@@ -32,8 +33,8 @@ router.get("/polls/:id" , function(req, res, next){
   var id   = req.params.id;
   var poll = req.app.locals.polls[id];
   if (!poll) { res.redirect("/404/"); }
-
-  res.render("../../views/polls/show.jade", {taco: "taco value"});
+  
+  res.render("../../views/polls/show.jade", {poll: poll});
 });
 
 
