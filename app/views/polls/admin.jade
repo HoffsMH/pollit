@@ -11,9 +11,9 @@ block content
       a(href= userUrl)= userUrl
       h5 Question
       div= poll.poll.question
+      div(class="row")
       ul
       - for (var i = 0; i < Object.keys(poll.choices).length ; ++i) {
-        div(class="row")
           li(data-choice=Object.keys(poll.choices)[i], class="choice-id-" + Object.keys(poll.choices)[i] + " ")= Object.keys(poll.choices)[i] + ": "
       - }    
       div(class="row")

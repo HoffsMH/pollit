@@ -6,7 +6,7 @@ $(document).on("click", ".add-choice", function() {
   var newIndex      = $choices.length;
 
   var $newChoice = $($firstChoice).clone()[0];
-  $($newChoice).attr("name", "choices[" +  newIndex + "]");
+  $($newChoice).attr("name", "choices[" +  newIndex + "]").val("");
 
   $(".choices-container").append($("<h5>").text("choice: ")).append($newChoice);
 });
