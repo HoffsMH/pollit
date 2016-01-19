@@ -7,7 +7,7 @@ $(document).ready(() => {
   var $pollUserId = $(".poll-user-id");
   if (onUserPollPage()) {
     var id = $pollUserId.text();
-    socket.send("poll-user-info-" + id,{id: id});
+    socket.send("poll-user-info-" + id, {id: id});
   }
   $(document).on("click", ".vote-button", function() {
     if (onUserPollPage()) {

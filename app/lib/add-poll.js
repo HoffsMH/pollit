@@ -12,6 +12,7 @@ function addPoll (poll) {
   newPoll.userToken = userToken;
   newPoll.adminToken = adminToken;
   newPoll.choices = {};
+  newPoll.status = "open"
 
   _.each(poll.choices, (choice)=> {
     newPoll.choices[choice] = [];

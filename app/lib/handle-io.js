@@ -16,13 +16,18 @@ module.exports = (io, app) => {
           socket.emit(channel, poll.choices);
         }
       }
+      if (channel.substring(0, 16) === "poll-admin-info-") {
+        if (message.id === poll.adminToken) {
+          socket.emit(channel, poll);
+        }
+      }
       if (channel === 'cast-vote') {
         app.clearVote(poll, socket.id);
         poll.choices[message.choice].push(socket.id);
         if (isPublic) {
           io.sockets.emit('poll-user-info-'+ poll.userToken, poll.choices);
         }
-        io.sockets.emit('poll-admin-info-'+ poll.AdminToken, poll);
+        io.sockets.emit('poll-admin-info-'+ poll.adminToken, poll);
       }
     });
   });

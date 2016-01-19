@@ -18,9 +18,21 @@ $(document).ready(() => {
     }
   });
 
-  socket.on("poll-admin-info", (message) => {
-    _.each(Object.keys(message), (key)=> {
-      $(".choice-id-"+key).text(key+": " + message[key].length);
+  $(document).on("click", ".close-poll", function() {
+    if (onUserPollPage()) {
+      var id = $pollUserId.text();
+      var choice = $(this).attr("data-choice");
+      socket.send("cast-vote", {id: id, choice: choice});
+      $(".vote-thankyou").text("Thanks for your Vote");
+    }
+  });
+
+  socket.on("poll-admin-info-" + $pollAdminId.text(), (message) => {
+    var poll =  message;
+    var choices = poll.choices;
+    var choiceKeys = Object.keys(choices);
+    _.each(choiceKeys, (key)=> {
+      $(".choice-id-"+key).text(key+": " + choices[key].length);
     });
   });
 

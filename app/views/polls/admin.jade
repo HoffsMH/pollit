@@ -16,5 +16,7 @@ block content
         div(class="row")
           li(data-choice=Object.keys(poll.choices)[i], class="choice-id-" + Object.keys(poll.choices)[i] + " ")= Object.keys(poll.choices)[i] + ": "
       - }    
+      div(class="row")
+        div(class="col m10 btn offset-m1 close-poll") Close Poll
       a(href='/') New Poll
       
