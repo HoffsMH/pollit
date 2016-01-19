@@ -14,18 +14,20 @@ module.exports = (io, app) => {
       var isPublic = poll.poll["public-results"];
       var isOpen   = (poll.status === "open");
       var closeMomentString = poll.poll['end-time'] + " " + poll.poll['end-date'];
-      var closeMoment = moment(closeMomentString);
-      var thisMoment = moment();
 
-      if (thisMoment.isAfter(closeMoment)) {
-        poll.status = "closed";
-        isOpen = false;
-        if (thisMoment.isAfter(closeMoment.add(2, "days"))) {
-          var userToken = poll.userToken;
-          var adminToken = poll.adminToken;
-          delete app.locals.polls[userToken];
-          delete app.locals.polls[adminToken];
-          return false
+      if (closeMomentString !== " ") {
+        var closeMoment = moment(closeMomentString);
+        var thisMoment = moment();
+        if (thisMoment.isAfter(closeMoment)) {
+          poll.status = "closed";
+          isOpen = false;
+          if (thisMoment.isAfter(closeMoment.add(2, "days"))) {
+            var userToken = poll.userToken;
+            var adminToken = poll.adminToken;
+            delete app.locals.polls[userToken];
+            delete app.locals.polls[adminToken];
+            return false;
+          }
         }
       }
       if (channel.substring(0, 15) === "poll-user-info-") {
