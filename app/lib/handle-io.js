@@ -11,8 +11,10 @@ module.exports = (io, app) => {
     socket.on('message', function (channel, message) {
       var poll = app.locals.polls[message.id];
       if (!poll) {return false;}
+
       var isPublic = poll.poll["public-results"];
       var isOpen   = (poll.status === "open");
+
       var closeMomentString = poll.poll['end-time'] + " " + poll.poll['end-date'];
       var closeMoment = moment(closeMomentString);
       var thisMoment = moment();
@@ -41,16 +43,13 @@ module.exports = (io, app) => {
       if (channel === 'cast-vote' && isOpen) {
         app.clearVote(poll, socket.id);
         poll.choices[message.choice].push(socket.id);
-        if (isPublic) {
-          io.sockets.emit('poll-user-info-'+ poll.userToken, poll.choices);
-        }
+
         io.sockets.emit('poll-admin-info-'+ poll.adminToken, poll);
+        if (isPublic) { io.sockets.emit('poll-user-info-'+ poll.userToken, poll.choices); }
       }
       if (channel === "close-poll" && message.id === poll.adminToken) {
         poll.status = "closed";
       }
     });
   });
-
-
 };

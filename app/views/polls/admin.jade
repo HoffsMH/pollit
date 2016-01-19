@@ -11,13 +11,15 @@ block content
       a(href= userUrl)= userUrl
       h5 Question
       div= poll.poll.question
+        ul
+        - for (var i = 0; i < Object.keys(poll.choices).length ; ++i) {
+          div(class="row")
+            li(data-choice=Object.keys(poll.choices)[i], class="col md12 choice-id-" + Object.keys(poll.choices)[i] + " ")= Object.keys(poll.choices)[i] + ": "
+        - }    
       div(class="row")
-      ul
-      - for (var i = 0; i < Object.keys(poll.choices).length ; ++i) {
-          li(data-choice=Object.keys(poll.choices)[i], class="choice-id-" + Object.keys(poll.choices)[i] + " ")= Object.keys(poll.choices)[i] + ": "
-      - }    
       div(class="row")
-        div(class="col m10 btn offset-m1 close-poll") Close Poll
+      div(class="row")
+        div(class="col m10 btn offset-m1 close-poll waves-effect waves-light") Close Poll
       div(class="row")
         a(class="col m10 btn offset-m1 close-poll", href='/') New Poll
       
