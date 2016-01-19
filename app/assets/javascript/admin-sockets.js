@@ -9,21 +9,11 @@ $(document).ready(() => {
     var id = $pollAdminId.text();
     socket.send("poll-admin-info-" + id, {id: id});
   }
-  $(document).on("click", ".vote-button", function() {
-    if (onUserPollPage()) {
-      var id = $pollUserId.text();
-      var choice = $(this).attr("data-choice");
-      socket.send("cast-vote", {id: id, choice: choice});
-      $(".vote-thankyou").text("Thanks for your Vote");
-    }
-  });
 
   $(document).on("click", ".close-poll", function() {
-    if (onUserPollPage()) {
+    if (onAdminPage()) {
       var id = $pollUserId.text();
-      var choice = $(this).attr("data-choice");
-      socket.send("cast-vote", {id: id, choice: choice});
-      $(".vote-thankyou").text("Thanks for your Vote");
+      socket.send("close-poll", {id: id});
     }
   });
 

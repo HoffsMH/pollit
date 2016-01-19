@@ -10,9 +10,10 @@ module.exports = (io, app) => {
       var poll = app.locals.polls[message.id];
       if (!poll) {return false;}
       var isPublic = poll.poll["public-results"];
+      var isOpen   = (poll.status === "open");
 
       if (channel.substring(0, 15) === "poll-user-info-") {
-        if (isPublic) {
+        if (isPublic && isOpen) {
           socket.emit(channel, poll.choices);
         }
       }
@@ -28,6 +29,9 @@ module.exports = (io, app) => {
           io.sockets.emit('poll-user-info-'+ poll.userToken, poll.choices);
         }
         io.sockets.emit('poll-admin-info-'+ poll.adminToken, poll);
+      }
+      if (channel === "close-poll" && message.id === poll.adminToken) {
+        poll.status = "closed";
       }
     });
   });
