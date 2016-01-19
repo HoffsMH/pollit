@@ -12,7 +12,7 @@ $(document).ready(() => {
 
   $(document).on("click", ".close-poll", function() {
     if (onAdminPage()) {
-      var id = $pollUserId.text();
+      var id = $pollAdminId.text();
       socket.send("close-poll", {id: id});
     }
   });

@@ -13,7 +13,7 @@ module.exports = (io, app) => {
       var isOpen   = (poll.status === "open");
 
       if (channel.substring(0, 15) === "poll-user-info-") {
-        if (isPublic && isOpen) {
+        if (isPublic) {
           socket.emit(channel, poll.choices);
         }
       }
@@ -22,7 +22,7 @@ module.exports = (io, app) => {
           socket.emit(channel, poll);
         }
       }
-      if (channel === 'cast-vote') {
+      if (channel === 'cast-vote' && isOpen) {
         app.clearVote(poll, socket.id);
         poll.choices[message.choice].push(socket.id);
         if (isPublic) {
